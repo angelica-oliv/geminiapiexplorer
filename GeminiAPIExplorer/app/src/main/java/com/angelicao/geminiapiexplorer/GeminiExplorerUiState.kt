@@ -3,29 +3,29 @@ package com.angelicao.geminiapiexplorer
 /**
  * A sealed hierarchy describing the state of the text generation.
  */
-sealed interface SummarizeUiState {
+sealed interface GeminiExplorerUiState {
 
     /**
      * Empty state when the screen is first shown
      */
-    object Initial : SummarizeUiState
+    object Initial : GeminiExplorerUiState
 
     /**
      * Still loading
      */
-    object Loading : SummarizeUiState
+    object Loading : GeminiExplorerUiState
 
     /**
      * Text has been generated
      */
     data class Success(
         val outputText: String
-    ) : SummarizeUiState
+    ) : GeminiExplorerUiState
 
     /**
      * There was an error generating text
      */
     data class Error(
         val errorMessage: String
-    ) : SummarizeUiState
+    ) : GeminiExplorerUiState
 }
