@@ -33,6 +33,14 @@ The chosen image will automatically receive a humorous description.
 
 For more granular control, you can modify the "prompt" value in `GeminiExplorerViewModel.kt` (line 26). Explore different prompts and see what results you get!
 
+#### Terms of Service Notice
+
+While using Gemini API, the data submitted can be used to improve the model.
+According to the [Gemini API Additional Terms of Service](https://ai.google.dev/terms):
+> **Do not submit sensitive, confidential, or personal information to the Services.**
+
+Consider reading the full terms [here](https://ai.google.dev/terms).
+
 
 ## Contributing
 
