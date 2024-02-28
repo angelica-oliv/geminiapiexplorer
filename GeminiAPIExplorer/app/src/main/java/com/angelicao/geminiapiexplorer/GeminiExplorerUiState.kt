@@ -5,20 +5,22 @@ package com.angelicao.geminiapiexplorer
  */
 sealed interface GeminiExplorerUiState {
 
+    val prompt: String
     /**
      * Empty state when the screen is first shown
      */
-    object Initial : GeminiExplorerUiState
+    data class Initial(override val prompt: String) : GeminiExplorerUiState
 
     /**
      * Still loading
      */
-    object Loading : GeminiExplorerUiState
+    data class Loading(override val prompt: String) : GeminiExplorerUiState
 
     /**
      * Text has been generated
      */
     data class Success(
+        override val prompt: String,
         val outputText: String
     ) : GeminiExplorerUiState
 
@@ -26,6 +28,7 @@ sealed interface GeminiExplorerUiState {
      * There was an error generating text
      */
     data class Error(
+        override val prompt: String,
         val errorMessage: String
     ) : GeminiExplorerUiState
 }

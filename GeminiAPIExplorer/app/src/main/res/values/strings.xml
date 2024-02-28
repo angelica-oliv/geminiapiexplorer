@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GeminiAPIExplorer</string>
-    <string name="add_image">Add Image</string>
+    <string name="choose_image">Escolha uma imagem para ser enviada para a Gemini API dado o seguinte prompt:</string>
+    <string name="add_image">Adicionar Imagem</string>
 </resources>

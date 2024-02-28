@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -112,7 +113,7 @@ suspend fun getBitmapImages(imageUris: List<Uri>,
 
 @Composable
 fun GeminiExplorerScreen(
-    uiState: GeminiExplorerUiState = GeminiExplorerUiState.Initial,
+    uiState: GeminiExplorerUiState = GeminiExplorerUiState.Initial("empty"),
     onImagesSelected: (List<Bitmap>) -> Unit = {}
 ) {
     val coroutineScope = rememberCoroutineScope()
@@ -146,6 +147,31 @@ fun GeminiExplorerScreen(
         Row(
             modifier = Modifier.padding(top = 16.dp)
         ) {
+            Text(
+                text = stringResource(R.string.choose_image),
+                modifier = Modifier
+                    .padding(all = 4.dp)
+            )
+        }
+        Row(
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
+            Card(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .wrapContentHeight()
+            ) {
+                Text(
+                    text = uiState.prompt,
+                    modifier = Modifier
+                        .padding(all = 4.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+            }
+        }
+        Row(
+            modifier = Modifier.padding(top = 16.dp)
+        ) {
             Card(
                 modifier = Modifier.wrapContentWidth()
             ) {
@@ -167,7 +193,8 @@ fun GeminiExplorerScreen(
             }
         }
         LazyRow(
-            modifier = Modifier.padding(all = 8.dp)
+            modifier = Modifier
+                .padding(all = 8.dp)
                 .align(Alignment.CenterHorizontally)
         ) {
             items(imageUris)  { imageUri ->
@@ -181,11 +208,11 @@ fun GeminiExplorerScreen(
             }
         }
         when (uiState) {
-            GeminiExplorerUiState.Initial -> {
+            is GeminiExplorerUiState.Initial -> {
                 // Nothing is shown
             }
 
-            GeminiExplorerUiState.Loading -> {
+            is GeminiExplorerUiState.Loading -> {
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier
