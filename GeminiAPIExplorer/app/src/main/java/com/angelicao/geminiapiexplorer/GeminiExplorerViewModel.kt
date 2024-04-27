@@ -1,6 +1,9 @@
 package com.angelicao.geminiapiexplorer
 
 import android.graphics.Bitmap
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
@@ -15,8 +18,8 @@ class GeminiExplorerViewModel(
     private val generativeModel: GenerativeModel
 ) : ViewModel() {
 
-    private val prompt = "Me descreva a receita para o prato na imagem"
-    //        val prompt = "Escreva uma frase divertida sobre a imagem"
+    private val prompt = "Cuéntame la receta del plato de la imagen"
+    //        val prompt = "Escribe una frase divertida sobre la imagen"
     private val _uiState: MutableStateFlow<GeminiExplorerUiState> =
         MutableStateFlow(GeminiExplorerUiState.Initial(prompt))
     val uiState: StateFlow<GeminiExplorerUiState> =

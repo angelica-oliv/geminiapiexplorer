@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GeminiAPIExplorer</string>
+    <string name="choose_image">Elija una imagen para cargar en la API de Gemini según el siguiente mensaje:</string>
+    <string name="add_image">Añadir imagen</string>
+    <string name="prompt_recipe">Cuéntame la receta del plato de la imagen</string>
+    <string name="prompt_funphrase">"Escribe una frase divertida sobre la imagen"</string>
+</resources>
