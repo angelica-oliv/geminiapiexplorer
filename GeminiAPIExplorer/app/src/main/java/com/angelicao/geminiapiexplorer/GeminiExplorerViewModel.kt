@@ -18,8 +18,8 @@ class GeminiExplorerViewModel(
     private val generativeModel: GenerativeModel
 ) : ViewModel() {
 
-    private val prompt = "Cuéntame la receta del plato de la imagen"
-    //        val prompt = "Escribe una frase divertida sobre la imagen"
+//    private val prompt = "Cuéntame la receta del plato de la imagen"
+    private val prompt = "Escribe una frase divertida sobre la imagen"
     private val _uiState: MutableStateFlow<GeminiExplorerUiState> =
         MutableStateFlow(GeminiExplorerUiState.Initial(prompt))
     val uiState: StateFlow<GeminiExplorerUiState> =
